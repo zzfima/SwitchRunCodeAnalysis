@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="SwitchRunCodeAnalysisVSIX.ea77f2d8-3854-4bf0-affa-b47950bf5b8e" Version="1.0" Language="en-US" Publisher="zzfima" />
+        <Identity Id="SwitchRunCodeAnalysisVSIX.ea77f2d8-3854-4bf0-affa-b47950bf5b8e" Version="1.2" Language="en-US" Publisher="Efim Zabarsky" />
         <DisplayName>SwitchRunCodeAnalysis</DisplayName>
         <Description xml:space="preserve">Turn on/off RunCodeAnalysis for all Projects in solution
 In each PropertyGroup will created/changed Key RunCodeAnalysis</Description>
         <Icon>CA.png</Icon>
         <PreviewImage>CA.png</PreviewImage>
         <Tags>RunCodeAnalysis</Tags>
+        <Preview>true</Preview>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 18.0)">
