@@ -14,15 +14,15 @@ namespace SwitchRunCodeAnalysisVSIX
 
         public void TurnOn()
         {
-            SetAllCsprojsProperty(CsprojPropertiesEnumeration.RunCodeAnalysis, true);
+            SetAllCsprojProperty(CsprojPropertiesEnumeration.RunCodeAnalysis, true);
         }
 
         public void TurnOff()
         {
-            SetAllCsprojsProperty(CsprojPropertiesEnumeration.RunCodeAnalysis, false);
+            SetAllCsprojProperty(CsprojPropertiesEnumeration.RunCodeAnalysis, false);
         }
 
-        private void SetAllCsprojsProperty(CsprojPropertiesEnumeration csprojPropertiesEnumeration, bool state)
+        private void SetAllCsprojProperty(CsprojPropertiesEnumeration csprojPropertiesEnumeration, bool state)
         {
             if (_solutionFilePath == null)
                 return;
