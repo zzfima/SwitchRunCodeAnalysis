@@ -82,6 +82,10 @@
     </VSCTCompile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CA.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
     <Content Include="Resources\TurnOffCommand.png" />
     <Content Include="Resources\TurnOnCommand.png" />
   </ItemGroup>
