@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SwitchRunCodeAnalysisVSIXPackage.cs" />
+    <Compile Include="TurnOffCommand.cs" />
     <Compile Include="TurnOnCommand.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +81,7 @@
     </VSCTCompile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\TurnOffCommand.png" />
     <Content Include="Resources\TurnOnCommand.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
