@@ -3,26 +3,26 @@ using Microsoft.Build.Evaluation;
 
 namespace SwitchRunCodeAnalysisVSIX
 {
-    internal class RunCodeAnalysisStateManager
+    internal class CsprojPropertiesManager
     {
         private readonly string _solutionFilePath;
 
-        public RunCodeAnalysisStateManager(string solutionFilePath)
+        public CsprojPropertiesManager(string solutionFilePath)
         {
             _solutionFilePath = solutionFilePath;
         }
 
         public void TurnOn()
         {
-            SetRunCodeAnalysis(true);
+            SetAllCsprojsProperty(CsprojPropertiesEnumeration.RunCodeAnalysis, true);
         }
 
         public void TurnOff()
         {
-            SetRunCodeAnalysis(false);
+            SetAllCsprojsProperty(CsprojPropertiesEnumeration.RunCodeAnalysis, false);
         }
 
-        private void SetRunCodeAnalysis(bool state)
+        private void SetAllCsprojsProperty(CsprojPropertiesEnumeration csprojPropertiesEnumeration, bool state)
         {
             var solutionFile = SolutionFile.Parse(_solutionFilePath);
 

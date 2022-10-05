@@ -87,9 +87,9 @@ namespace SwitchRunCodeAnalysisVSIX
         {
             ThreadHelper.ThrowIfNotOnUIThread();
             string message = "";
-            string title = "TurnOffCommand";
+            string title = "RunCodeAnalysis Turned Off";
 
-            var dd = new RunCodeAnalysisStateManager(@"C:\Users\zzfim\source\repos\ConsoleApp1\ConsoleApp1.sln");
+            var dd = new CsprojPropertiesManager(@"C:\Users\zzfim\source\repos\ConsoleApp1\ConsoleApp1.sln");
             dd.TurnOff();
 
             // Show a message box to prove we were here
