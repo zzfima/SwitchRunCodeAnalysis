@@ -33,8 +33,32 @@ namespace SwitchRunCodeAnalysisVSIX
             {
                 var projectCollection = new ProjectCollection();
                 var loadedProject = projectCollection.LoadProject(csproj.AbsolutePath);
-                loadedProject.SetProperty("RunCodeAnalysis", state == true ? "true" : "false");
+
+
+                foreach (var propertyGroup in loadedProject.Xml.PropertyGroups)
+                {
+                    propertyGroup.SetProperty("RunCodeAnalysis", state == true ? "true" : "false");
+                }
+
                 loadedProject.Save();
+
+                /* DEPRICATED
+                Project project = new Project();
+                project.Load(csproj.AbsolutePath);
+                foreach (BuildPropertyGroup propertyGroup in project.PropertyGroups)
+                {
+                    foreach (BuildProperty prop in propertyGroup)
+                    {
+                        Console.WriteLine("{0}:{1}", prop.Name, prop.Value);
+                        if (prop.Name == csprojPropertiesEnumeration.ToString())
+                        {
+                            prop.Value = state == true ? "true" : "false";
+                        }
+                    }
+                }
+                project.Save(csproj.AbsolutePath);
+                */
+
             }
         }
     }
