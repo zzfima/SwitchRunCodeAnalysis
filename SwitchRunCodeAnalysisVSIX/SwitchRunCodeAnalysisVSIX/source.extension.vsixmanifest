@@ -3,7 +3,8 @@
     <Metadata>
         <Identity Id="SwitchRunCodeAnalysisVSIX.ea77f2d8-3854-4bf0-affa-b47950bf5b8e" Version="1.0" Language="en-US" Publisher="zzfima" />
         <DisplayName>SwitchRunCodeAnalysis</DisplayName>
-        <Description xml:space="preserve">Turn on/off RunCodeAnalysis for all Projects in solution</Description>
+        <Description xml:space="preserve">Turn on/off RunCodeAnalysis for all Projects in solution
+In each PropertyGroup will created/changed Key RunCodeAnalysis</Description>
         <Icon>CA.png</Icon>
         <PreviewImage>CA.png</PreviewImage>
         <Tags>RunCodeAnalysis</Tags>
