@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.Shell.Interop;
 using System;
 using System.ComponentModel.Design;
+using System.IO;
 using Task = System.Threading.Tasks.Task;
 
 namespace SwitchRunCodeAnalysisVSIX
@@ -26,6 +27,8 @@ namespace SwitchRunCodeAnalysisVSIX
         /// </summary>
         private readonly AsyncPackage package;
 
+        private readonly CsprojPropertiesManager _csprojPropertiesManager;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="TurnOnCommand"/> class.
         /// Adds our command handlers for menu (commands must exist in the command table file)
@@ -40,6 +43,8 @@ namespace SwitchRunCodeAnalysisVSIX
             var menuCommandID = new CommandID(CommandSet, CommandId);
             var menuItem = new MenuCommand(this.Execute, menuCommandID);
             commandService.AddCommand(menuItem);
+
+             _csprojPropertiesManager = new CsprojPropertiesManager(@"C:\Users\zzfim\source\repos\ConsoleApp1\ConsoleApp1.sln");
         }
 
         /// <summary>
@@ -89,8 +94,7 @@ namespace SwitchRunCodeAnalysisVSIX
             string message = "";
             string title = "RunCodeAnalysis Turned On";
 
-            var dd = new CsprojPropertiesManager(@"C:\Users\zzfim\source\repos\ConsoleApp1\ConsoleApp1.sln");
-            dd.TurnOn();
+            _csprojPropertiesManager.TurnOn();
 
             // Show a message box to prove we were here
             VsShellUtilities.ShowMessageBox(
