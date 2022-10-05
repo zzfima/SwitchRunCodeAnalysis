@@ -50,6 +50,7 @@
     <Compile Include="CsprojPropertiesEnumeration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CsprojPropertiesManager.cs" />
+    <Compile Include="SolutionFileFinder.cs" />
     <Compile Include="SwitchRunCodeAnalysisVSIXPackage.cs" />
     <Compile Include="TurnOffCommand.cs" />
     <Compile Include="TurnOnCommand.cs" />

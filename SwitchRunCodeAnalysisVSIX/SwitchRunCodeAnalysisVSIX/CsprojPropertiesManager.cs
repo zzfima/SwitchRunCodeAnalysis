@@ -24,6 +24,9 @@ namespace SwitchRunCodeAnalysisVSIX
 
         private void SetAllCsprojsProperty(CsprojPropertiesEnumeration csprojPropertiesEnumeration, bool state)
         {
+            if (_solutionFilePath == null)
+                return;
+
             var solutionFile = SolutionFile.Parse(_solutionFilePath);
 
             foreach (var csproj in solutionFile.ProjectsInOrder)

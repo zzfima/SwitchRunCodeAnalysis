@@ -43,7 +43,7 @@ namespace SwitchRunCodeAnalysisVSIX
             var menuItem = new MenuCommand(this.Execute, menuCommandID);
             commandService.AddCommand(menuItem);
 
-            _csprojPropertiesManager = new CsprojPropertiesManager(@"C:\Users\zzfim\source\repos\ConsoleApp1\ConsoleApp1.sln");
+            _csprojPropertiesManager = new CsprojPropertiesManager(SolutionFileFinder.FindClosestSolution());
         }
 
         /// <summary>
