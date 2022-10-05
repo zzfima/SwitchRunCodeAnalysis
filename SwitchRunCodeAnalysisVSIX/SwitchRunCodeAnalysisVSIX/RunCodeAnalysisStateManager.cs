@@ -14,18 +14,15 @@ namespace SwitchRunCodeAnalysisVSIX
 
         public void TurnOn()
         {
-            var solutionFile = SolutionFile.Parse(_solutionFilePath);
-
-            foreach (var csproj in solutionFile.ProjectsInOrder)
-            {
-                var projectCollection = new ProjectCollection();
-                var loadedProject = projectCollection.LoadProject(csproj.AbsolutePath);
-                loadedProject.SetProperty("RunCodeAnalysis", "true");
-                loadedProject.Save();
-            }
+            SetRunCodeAnalysis(true);
         }
 
         public void TurnOff()
+        {
+            SetRunCodeAnalysis(false);
+        }
+
+        private void SetRunCodeAnalysis(bool state)
         {
             var solutionFile = SolutionFile.Parse(_solutionFilePath);
 
@@ -33,7 +30,7 @@ namespace SwitchRunCodeAnalysisVSIX
             {
                 var projectCollection = new ProjectCollection();
                 var loadedProject = projectCollection.LoadProject(csproj.AbsolutePath);
-                loadedProject.SetProperty("RunCodeAnalysis", "false");
+                loadedProject.SetProperty("RunCodeAnalysis", state == true ? "true" : "false");
                 loadedProject.Save();
             }
         }
