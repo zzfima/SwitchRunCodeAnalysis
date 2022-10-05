@@ -4,7 +4,10 @@ using Microsoft.VisualStudio.Shell.Interop;
 using Microsoft.Build.Construction;
 using System.ComponentModel.Design;
 using System.Text;
+using EnvDTE;
+using EnvDTE80;
 using Task = System.Threading.Tasks.Task;
+using Microsoft.Build.Evaluation;
 
 namespace SwitchRunCodeAnalysisVSIX
 {
@@ -95,6 +98,11 @@ namespace SwitchRunCodeAnalysisVSIX
             foreach (var csproj in solutionFile.ProjectsInOrder)
             {
                 message.AppendLine(csproj.ProjectName);
+
+                var projectCollection = new ProjectCollection();
+                var loadedProject = projectCollection.LoadProject(csproj.AbsolutePath);
+                loadedProject.SetProperty("RunCodeAnalysis", "true");
+                loadedProject.Save();
             }
 
             // Show a message box to prove we were here
